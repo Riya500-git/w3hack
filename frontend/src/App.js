@@ -9,11 +9,11 @@ import Last from "./Last";
 function App() {
   return (
     <div className="App">
-      <Login />
+      {/* <Login /> */}
       {/* <NavBar /> */}
       {/* <UserPage /> */}
       {/* <Mint/> */}
-      {/* <Last/> */}
+      <Last/>
     </div>
   );
 }
