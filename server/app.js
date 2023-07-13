@@ -84,14 +84,14 @@ app.post("/deployMintNFTERC721", (req, res) => {
 // const enrollmentRoutes = require("./routes/EnrollmentRoute.js");
 // app.use("/enrollment", enrollmentRoutes);
 
-// const credentialsRoutes = require("./routes/CredentialsRoute.js");
-// app.use("/credentials", credentialsRoutes);
+const credentialsRoutes = require("./routes/CredentialsRoute.js");
+app.use("/credentials", credentialsRoutes);
 
-// const projectRoutes = require("./routes/ProjectRoute.js");
-// app.use("/projects", projectRoutes);
+const projectRoutes = require("./routes/ProjectRoute.js");
+app.use("/projects", projectRoutes);
 
-// const MarketPlaceRoute = require("./routes/MarketPlaceRoute.js");
-// app.use("/marketPlace", MarketPlaceRoute);
+const MarketPlaceRoute = require("./routes/MarketPlaceRoute.js");
+app.use("/marketPlace", MarketPlaceRoute);
 
 app.listen(5002, () => {
     logger.info("app is listening on port 5002");
