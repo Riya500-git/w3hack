@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { VStack, Radio, Button, Flex, Box, Heading } from "@chakra-ui/react";
 import image from "./8310471.jpg";
 
-const LoginPage = () => {
+const LoginPage = (props) => {
   const [selectedOption, setSelectedOption] = useState("");
   const navigate = useNavigate();
 
@@ -13,10 +13,13 @@ const LoginPage = () => {
 
   const handleSubmit = () => {
     if (selectedOption === "page1") {
+      props.login();
       navigate("/Mint");
     } else if (selectedOption === "page2") {
+      props.login();
       navigate("/UserPage");
     } else if (selectedOption === "page3") {
+      props.login();
       navigate("/Mint");
     }
   };

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Table, Box, Flex, ChakraProvider, Heading, Text, Input, Textarea, Button, VStack, HStack } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory , useNavigate} from "react-router-dom";
 
-const Mint = () => {
+const Mint = (props) => {
   const [showMintForm, setShowMintForm] = useState(false);
   const [showAvailableTokensForm, setShowAvailableTokensForm] = useState(false);
   const [showProfileForm, setShowProfileForm] = useState(false);
+  const navigate = useNavigate();
 
   const handleMintTokenBoxClick = () => {
     setShowMintForm(!showMintForm);
@@ -26,10 +27,23 @@ const Mint = () => {
     setShowAvailableTokensForm(false);
   };
 
+  const listed = () => {
+    navigate("/last");
+  }
+
+  const mintToken = () => {
+    props.deployContract()
+  }
+
   return (
     <ChakraProvider>
       <div>
-        <NavBar />
+        <NavBar logout={props.logout} />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+				<h2 style={{ color: "#47d2af", fontWeight: 700, fontSize: "40px" }}>
+					CarbonXChange
+				</h2>
+			</div>
         <VStack spacing={8} align="center" paddingY={8}>
           <HStack spacing={8}>
             <Box
@@ -107,11 +121,11 @@ const Mint = () => {
                 </VStack>
 
                 <VStack spacing={2} align="right" marginLeft="7rem">
-                  <Text>Tushar</Text>
-                  <Text>Lorem Ipsum</Text>
-                  <Text>Lorem Ipsum</Text>
-                  <Text>Lorem Ipsum</Text>
-                  <Text>tushar@gmail.com</Text>
+                  <Text>{props.userInfo.name}</Text>
+                  <Text>{props.publicAddress}</Text>
+                  <Text>{props.balance}</Text>
+                  <Text>0</Text>
+                  <Text>{props.userInfo.email}</Text>
                 </VStack>
               </Flex>
             </Box>
@@ -171,6 +185,19 @@ const Mint = () => {
                   color="white"
                   width="500px" 
                 />
+                <Text color="white">Price</Text>
+                <Input
+                  type="number"
+                  name="quantity"
+                  id="quantityInput"
+                  min="100"
+                  step="1"
+                  defaultValue="1"
+                  variant="outline"
+                  borderColor="#FFFFFF"
+                  color="white"
+                  width="500px" 
+                />
                 <Button
                   colorScheme="blue"
                   backgroundColor="teal"
@@ -180,6 +207,7 @@ const Mint = () => {
                   width="200px"
                   height="64px"
                   fontSize="16px"
+                  onClick={mintToken}
                 >
                   Submit
                 </Button>
@@ -213,10 +241,10 @@ const Mint = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Carbon</td>
-                    <td>1000</td>
+                    <td>xdc Carbon</td>
+                    <td>100</td>
                     <td>
-                      <Button colorScheme="teal" size="lg">
+                      <Button colorScheme="teal" size="lg" onClick={listed}>
                         Button
                       </Button>
                     </td>

@@ -62,18 +62,18 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.post("/deployMintNFTERC721", (req, res) => {
     console.log(req.body);
-    const NFT_NAME = req.body.NFT_NAME;
-    const NFT_SYMBOL = req.body.NFT_SYMBOL;
-    const PRICEOFNFT = req.body.PRICEOFNFT;
-    const network = req.body.network;
+    const NFT_NAME = 'BNZToken';
+    const NFT_SYMBOL = 'BNZ';
+    const PRICEOFNFT = '1000000000000';
+    const network = 'xdc_testnet';
     exec(
       `sh deploy.sh ${NFT_NAME} ${NFT_SYMBOL} ${PRICEOFNFT}  ${network}`,
       // exec(`sh deploy.sh`,
       (error, stdout, stderr) => {
         console.log(stdout);
-        let response = JSON.parse(stdout);
-        console.log(stderr);
-        res.json(response);
+        // let response = JSON.parse(stdout);
+        // console.log(stderr);
+        res.json("response");
         if (error !== null) {
           console.log(`exec error: ${error}`);
         }
@@ -92,6 +92,10 @@ app.use("/projects", projectRoutes);
 
 const MarketPlaceRoute = require("./routes/MarketPlaceRoute.js");
 app.use("/marketPlace", MarketPlaceRoute);
+
+const XDCRoute = require("./routes/XDCRoute.js");
+app.use("/XDCRoute", XDCRoute);
+
 
 app.listen(5002, () => {
     logger.info("app is listening on port 5002");

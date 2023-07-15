@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, ChakraProvider, Heading, VStack, HStack, Table, Button, Text, Flex } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 
-const UserPage = () => {
+const UserPage = (props) => {
   const [showBiodata, setShowBiodata] = useState(false);
   const [showTokenTable, setShowTokenTable] = useState(false);
 
@@ -20,6 +20,11 @@ const UserPage = () => {
     <ChakraProvider>
       <div>
         <NavBar />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <h2 style={{ color: "#47d2af", fontWeight: 700, fontSize: "40px" }}>
+            CarbonXChange
+          </h2>
+        </div>
         <VStack spacing={8} align="center" paddingY={8}>
           <HStack spacing={8}>
             <Box
@@ -100,33 +105,33 @@ const UserPage = () => {
                 </VStack>
 
                 <VStack spacing={2} align="right" marginLeft="7rem">
-                  <Text>Tushar</Text>
-                  <Text>Lorem Ipsum</Text>
-                  <Text>Lorem Ipsum</Text>
-                  <Text>Lorem Ipsum</Text>
-                  <Text>tushar@gmail.com</Text>
+                  <Text>{props.userInfo.name}</Text>
+                  <Text>{props.publicAddress}</Text>
+                  <Text>{props.balance}</Text>
+                  <Text>0</Text>
+                  <Text>{props.userInfo.email}</Text>
                 </VStack>
               </Flex>
             </Box>
           )}
           {showTokenTable && (
             <Box
-            className="box form glass-box"
-            p={4}
-            borderRadius="8px"
-            boxShadow="0 0 20px rgba(0, 0, 0, 0.1)"
-            backgroundColor="blue.500"
-            width="100%"
-            maxWidth="600px"
-            marginLeft="auto"
-            marginRight="auto"
-            marginTop="2rem"
-            marginBottom="2rem"
-            cursor="pointer"
-            bgGradient="linear(to-r, #99EDC3, #60A5FA)"
-            _hover={{ bgGradient: "linear(to-r, #60A5FA, #99EDC3)" }}
-            transition="background-color 0.3s ease"
-          >
+              className="box form glass-box"
+              p={4}
+              borderRadius="8px"
+              boxShadow="0 0 20px rgba(0, 0, 0, 0.1)"
+              backgroundColor="blue.500"
+              width="100%"
+              maxWidth="600px"
+              marginLeft="auto"
+              marginRight="auto"
+              marginTop="2rem"
+              marginBottom="2rem"
+              cursor="pointer"
+              bgGradient="linear(to-r, #99EDC3, #60A5FA)"
+              _hover={{ bgGradient: "linear(to-r, #60A5FA, #99EDC3)" }}
+              transition="background-color 0.3s ease"
+            >
               <Table variant="simple" width="100%" height="200px" color="white">
                 <thead>
                   <tr>

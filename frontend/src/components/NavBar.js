@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <Box
       bg="blue.500"
@@ -52,6 +52,7 @@ const NavBar = () => {
         _hover={{ bg: "#99EDC3" }}
         _focus={{ boxShadow: "0 0 0 2px #007bff" }}
         _active={{ bg: "#3DED17" }}
+        onClick={props.logout}
       >
         Logout
       </Button>

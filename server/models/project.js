@@ -18,7 +18,7 @@ const projectSchema = new mongoose.Schema({
         type: [String],
     },
     numOfTokens: {
-        type: [String]
+        type: String
     },
     remainingTokens: {
         type: [String],
