@@ -13,26 +13,14 @@ function App() {
     <ChakraProvider>
       <Router>
         <div className="App">
-          <LoginPage />
-          <NavBar />
-          <UserPage />
-          <Mint/>
-          <Last/>
-
-           <Routes>
-            {/* <Route path="/" element={''} />
-            <Route path="/Last" element={<Last />} />  */}
-          {/* </Routes> */}
-        {/* </div> */}
-      {/* </Router> */}
-
-      {/* <Router> */}
-      <Route path="/Mint" component={Mint} />
-      <Route path="/UserPage" component={UserPage} />
-      <Route path="/Mint" component={Mint} />
-      </Routes>
-      </div>
-    </Router>
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/mint" element={<Mint />} />
+            <Route path="/userpage" element={<UserPage />} />
+            <Route path="/last" element={<Last />} />
+          </Routes>
+        </div>
+      </Router>
     </ChakraProvider>
   );
 }
