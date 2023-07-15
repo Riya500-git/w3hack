@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { Box, ChakraProvider, Text, HStack, VStack, Heading, Flex } from "@chakra-ui/react";
+import { Box, ChakraProvider, Heading, VStack, HStack, Table, Button, Text, Flex } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 
 const UserPage = () => {
   const [showBiodata, setShowBiodata] = useState(false);
+  const [showTokenTable, setShowTokenTable] = useState(false);
 
   const handleProfileClick = () => {
     setShowBiodata(!showBiodata);
+    setShowTokenTable(false);
+  };
+
+  const handleTokenTableClick = () => {
+    setShowTokenTable(!showTokenTable);
+    setShowBiodata(false);
   };
 
   return (
@@ -38,6 +45,7 @@ const UserPage = () => {
               bgGradient="linear(to-r, #3FCC6E, #2DD4BF)"
               _hover={{ bgGradient: "linear(to-r, #2DD4BF, #3FCC6E)" }}
               transition="background-color 0.3s ease"
+              onClick={handleTokenTableClick}
             >
               <Heading size="md" color="white">
                 Available Tokens
@@ -51,6 +59,9 @@ const UserPage = () => {
               bgGradient="linear(to-r, #536DFE, #8C9EFF)"
               _hover={{ bgGradient: "linear(to-r, #8C9EFF, #536DFE)" }}
               transition="background-color 0.3s ease"
+              onClick={handleTokenTableClick}
+              cursor="pointer"
+
             >
               <Heading size="md" color="white">
                 Listed Tokens
@@ -59,56 +70,84 @@ const UserPage = () => {
           </HStack>
           {showBiodata && (
             <Box
-            className="box biodata glass-box"
+              className="box biodata glass-box"
+              p={4}
+              borderRadius="8px"
+              boxShadow="0 0 20px rgba(0, 0, 0, 0.1)"
+              bgGradient="linear(to-r, #99EDC3, #60A5FA)"
+              _hover={{ bgGradient: "linear(to-r, #60A5FA, #99EDC3)" }}
+              transition="background-color 0.3s ease"
+              cursor="pointer"
+
+            >
+              <Flex align="start" color="whiteAlpha.900">
+                <VStack spacing={2} align="left">
+                  <Text>
+                    <strong>Name:</strong>
+                  </Text>
+                  <Text>
+                    <strong>Public Address:</strong>
+                  </Text>
+                  <Text>
+                    <strong>Balance:</strong>
+                  </Text>
+                  <Text>
+                    <strong>Owned Token:</strong>
+                  </Text>
+                  <Text>
+                    <strong>Email:</strong>
+                  </Text>
+                </VStack>
+
+                <VStack spacing={2} align="right" marginLeft="7rem">
+                  <Text>Tushar</Text>
+                  <Text>Lorem Ipsum</Text>
+                  <Text>Lorem Ipsum</Text>
+                  <Text>Lorem Ipsum</Text>
+                  <Text>tushar@gmail.com</Text>
+                </VStack>
+              </Flex>
+            </Box>
+          )}
+          {showTokenTable && (
+            <Box
+            className="box form glass-box"
             p={4}
             borderRadius="8px"
             boxShadow="0 0 20px rgba(0, 0, 0, 0.1)"
+            backgroundColor="blue.500"
+            width="100%"
+            maxWidth="600px"
+            marginLeft="auto"
+            marginRight="auto"
+            marginTop="2rem"
+            marginBottom="2rem"
+            cursor="pointer"
             bgGradient="linear(to-r, #99EDC3, #60A5FA)"
             _hover={{ bgGradient: "linear(to-r, #60A5FA, #99EDC3)" }}
             transition="background-color 0.3s ease"
           >
-            
-            <Flex align="start" color="whiteAlpha.900">
-              <VStack spacing={2} align="left">
-                <Text>
-                  <strong>Name:</strong>
-                </Text>
-                <Text>
-                  <strong>Age:</strong>
-                </Text>
-                <Text>
-                  <strong>Location:</strong>
-                </Text>
-                <Text>
-                  <strong>Email:</strong>
-                </Text>
-                <Text>
-                  <strong>Phone:</strong>
-                </Text>
-                <Text>
-                  <strong>Industry:</strong>
-                </Text>
-                <Text>
-                  <strong>Experience:</strong>
-                </Text>
-                <Text>
-                  <strong>Other Details:</strong>
-                </Text>
-              </VStack>
-          
-              <VStack spacing={2} align="right" marginLeft="7rem">
-                <Text>Tushar</Text>
-                <Text>20</Text>
-                <Text>New York</Text>
-                <Text>tushar@gmail.com</Text>
-                <Text>123-456-7890</Text>
-                <Text>IT</Text>
-                <Text>2 years</Text>
-                <Text>Lorem Ipsum</Text>
-              </VStack>
-            </Flex>
-          </Box>
-          
+              <Table variant="simple" width="100%" height="200px" color="white">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Number of Tokens</th>
+                    <th>List Button</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Carbon</td>
+                    <td>1000</td>
+                    <td>
+                      <Button colorScheme="teal" size="lg">
+                        Button
+                      </Button>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Box>
           )}
         </VStack>
       </div>

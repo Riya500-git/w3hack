@@ -1,42 +1,38 @@
 import React from "react";
-import { Box, Button, ChakraProvider } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
-import Last from "../Last";
 
 const NavBar = () => {
   return (
-    <ChakraProvider>
-      <Box
-        bg="#f2f2f2"
-        padding="1rem"
-        display="flex"
-        justifyContent="flex-end"
+    <Box
+      bg="blue.500"
+      padding="1rem"
+      display="flex"
+      justifyContent="flex-end"
+    >
+      <Button
+        colorScheme="teal"
+        borderRadius="14px"
+        size="md"
+        marginRight="0.5rem"
+        color="white"
+        fontWeight="600"
+        _hover={{ bg: "#99EDC3" }}
+        _focus={{ boxShadow: "0 0 0 2px #007bff" }}
+        _active={{ bg: "#3DED17" }}
       >
-        <Button
-          variant="outline"
-          colorScheme="teal"
-          borderRadius="14px"
-          size="md"
-          marginRight="0.5rem"
-          color="#3DED17"
-          fontWeight="600"
-          _hover={{ bg: "#99EDC3" }}
-          _focus={{ boxShadow: "0 0 0 2px #007bff" }}
-          _active={{ bg: "#3DED17" }}
-        >
-          Address
-        </Button>
+        Address
+      </Button>
 
-        <Link to="/Last">
+      <Link to="/Last">
         <Button
           as="a"
           href="/"
-          variant="outline"
           colorScheme="teal"
           borderRadius="14px"
           size="md"
           marginRight="0.5rem"
-          color="#3DED17"
+          color="white"
           fontWeight="600"
           _hover={{ bg: "#99EDC3" }}
           _focus={{ boxShadow: "0 0 0 2px #007bff" }}
@@ -44,24 +40,22 @@ const NavBar = () => {
         >
           Marketplace
         </Button>
-        </Link>
+      </Link>
 
-        <Button
-          variant="outline"
-          colorScheme="teal"
-          borderRadius="14px"
-          size="md"
-          marginRight="0.5rem"
-          color="#3DED17"
-          fontWeight="600"
-          _hover={{ bg: "#99EDC3" }}
-          _focus={{ boxShadow: "0 0 0 2px #007bff" }}
-          _active={{ bg: "#3DED17" }}
-        >
-          Logout
-        </Button>
-      </Box>
-    </ChakraProvider>
+      <Button
+        colorScheme="teal"
+        borderRadius="14px"
+        size="md"
+        marginRight="0.5rem"
+        color="white"
+        fontWeight="600"
+        _hover={{ bg: "#99EDC3" }}
+        _focus={{ boxShadow: "0 0 0 2px #007bff" }}
+        _active={{ bg: "#3DED17" }}
+      >
+        Logout
+      </Button>
+    </Box>
   );
 };
 

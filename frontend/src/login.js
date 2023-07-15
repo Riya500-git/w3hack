@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { VStack, Radio, Button, Flex, Box, Heading } from "@chakra-ui/react";
-import UserPage from "./UserPage";
+import image from "./8310471.jpg";
 
 const LoginPage = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -13,18 +13,29 @@ const LoginPage = () => {
 
   const handleSubmit = () => {
     if (selectedOption === "page1") {
+      navigate("/Mint");
     } else if (selectedOption === "page2") {
+      navigate("/UserPage");
     } else if (selectedOption === "page3") {
+      navigate("/Mint");
     }
   };
 
   return (
-    <Flex align="center" justify="center" minHeight="100vh" bg="gray.100">
-      <Box width="400px" height="400px" bg="white" p={6} borderRadius="md" boxShadow="md" textAlign="center">
-        <Heading size="md" color="gray.800" mb={4}>
+    <Flex
+      align="center"
+      justify="center"
+      minHeight="100vh"
+      bgImage={`url(${image})`}
+      bgSize="cover"
+      bgPosition="center"
+      bgRepeat="no-repeat"
+    >
+      <Box width="400px" bg="blue.500" p={6} borderRadius="md" boxShadow="md" textAlign="center">
+        <Heading size="md" color="white" mb={4}>
           Login
         </Heading>
-        <VStack spacing={5}>
+        <VStack spacing={5} align="start" color="white">
           <Radio
             value="page1"
             isChecked={selectedOption === "page1"}
@@ -32,6 +43,7 @@ const LoginPage = () => {
           >
             Forest
           </Radio>
+
           <Radio
             value="page2"
             isChecked={selectedOption === "page2"}
@@ -39,6 +51,7 @@ const LoginPage = () => {
           >
             User
           </Radio>
+
           <Radio
             value="page3"
             isChecked={selectedOption === "page3"}
@@ -46,6 +59,7 @@ const LoginPage = () => {
           >
             Carbon Company
           </Radio>
+
           <Button colorScheme="teal" onClick={handleSubmit}>
             Submit
           </Button>
