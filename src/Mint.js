@@ -145,21 +145,25 @@ const Mint = () => {
             marginBottom="2rem"
           >
             <Table variant="simple" width="100%" height="200px">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Number of Tokens</th>
-                  <th>List Button</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>carbon</td>
-                  <td>1000</td>
-                  <td>button</td>
-                </tr>
-              </tbody>
-            </Table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Number of Tokens</th>
+                    <th>List Button</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Carbon</td>
+                    <td>1000</td>
+                    <td>
+                      <Button colorScheme="blue" size="lg">
+                        Button
+                      </Button>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
           </Box>
         )}
     </VStack>

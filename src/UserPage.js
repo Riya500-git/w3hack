@@ -67,9 +67,7 @@ const UserPage = () => {
             _hover={{ bgGradient: "linear(to-r, #60A5FA, #99EDC3)" }}
             transition="background-color 0.3s ease"
           >
-            <Heading size="md" mb={4} color="white">
-              Biodata
-            </Heading>
+            
             <Flex align="start" color="whiteAlpha.900">
               <VStack spacing={2} align="left">
                 <Text>

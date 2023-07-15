@@ -1,5 +1,7 @@
 import React from "react";
 import { Box, Button, ChakraProvider } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
+import Last from "../Last";
 
 const NavBar = () => {
   return (
@@ -24,7 +26,11 @@ const NavBar = () => {
         >
           Address
         </Button>
+
+        <Link to="/Last">
         <Button
+          as="a"
+          href="/"
           variant="outline"
           colorScheme="teal"
           borderRadius="14px"
@@ -38,6 +44,8 @@ const NavBar = () => {
         >
           Marketplace
         </Button>
+        </Link>
+
         <Button
           variant="outline"
           colorScheme="teal"
